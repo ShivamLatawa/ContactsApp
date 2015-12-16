@@ -1,0 +1,40 @@
+.container {
+    margin: 0 auto;
+    height: 720px;
+    overflow: auto;
+    background-color: #ade;
+    & .topContainer {
+        margin: 10px;
+        &__breadcrumbs {
+        	display: block;
+            &__filter {
+            	margin-right: 10px;
+                span.crossIcon {
+                    position: relative;
+                    bottom: 6px;
+                    left: 6px;
+                }
+            }
+        }
+
+        &__searchbar{
+        	min-height: 40px;
+        }
+    }
+
+    & .listContainer{
+    	border: 1px solid black;
+
+    	& .alphabets{
+    		ul{
+    			li{
+    				list-style: none;
+    			}
+    		}
+    	}
+    }
+}
+
+.margin_btm0{
+	margin-bottom: 0;
+}

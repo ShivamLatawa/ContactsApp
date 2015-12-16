@@ -1,0 +1,107 @@
+<div class="topContainer">
+    <div class="topContainer__filter row">
+        <div class="form-group col-xs-12 col-sm-4">
+            <select class="country form-control" name="" id="" ng-model="customFilter.country">
+                <option ng-repeat="contact in contacts" value="{{contact.country}}">{{contact.country}}</option>
+            </select>
+        </div>
+        <div class="form-group col-xs-12 col-sm-4">
+            <select class="city form-control" name="" id="" ng-model="customFilter.city">
+                <option ng-repeat="contact in contacts" value="{{contact.city}}">{{contact.city}}</option>
+            </select>
+        </div>
+        <div class="form-group col-xs-12 col-sm-4">
+            <select class="age form-control" name="" id="" ng-model="customFilter.age">
+                <option ng-repeat="contact in contacts | orderBy : 'contact.age'" value="{{contact.age}}">{{contact.age}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="topContainer__breadcrumbs">
+        <span ng-repeat="(key,value) in customFilter" ng-if="value != ''" data-filter="country" class="btn btn-danger topContainer__breadcrumbs__filter">{{value}}<span class="crossIcon" ng-click="resetFilter(key)"> X</span></span>
+
+        <span data-filter="country" ng-if="search" class="btn btn-danger topContainer__breadcrumbs__filter">{{search}}<span class="crossIcon" ng-click="resetFilter(search)"> X</span></span>
+    </div>
+    <div class="topContainer__searchbar">
+        <!-- <span class="searchText"></span>
+            <span class="searchIcon"></span> -->
+        <div class="form-group">
+            <input ng-model="search" class="btn col-xs-12 col-sm-8" type="text" placeholder="Type to search">
+            <!-- <input class="btn btn-primary col-sm-4" type="button" value="Search"> -->
+        </div>
+    </div>
+</div>
+<div class="listContainer row">
+    <div class="contactsContainer col-xs-9">
+        <div class="contactsContainer__contactcard" ng-repeat="contact in contacts | filter: customFilter | filter:search">
+            <div class="nameCont row">
+                <div class="form-group margin_btm0">
+                    <label for="last_name">Last Name:</label>
+                    <span class="sname">{{contact.last_name}}</span>
+                </div>
+                <div class="form-group margin_btm0">
+                    <label for="first_name">First Name:</label>
+                    <span class="fname">{{contact.first_name}}</span>
+                </div>
+                <div class="form-group margin_btm0">
+                    <label for="age">Age:</label>
+                    <span class="age">{{contact.age}}</span>
+                </div>
+            </div>
+            <div class="emailPhoneCont row">
+                <div class="form-group margin_btm0">
+                    <label for="age">Email:</label>
+                    <span class="email">{{contact.email}}</span>
+                </div>
+                <div class="form-group margin_btm0">
+                    <label for="age">Phone:</label>
+                    <span class="phone">{{contact.phone}}</span>
+                </div>
+            </div>
+            <div class="countryCont row">
+                <div class="form-group margin_btm0">
+                    <label for="age">Country:</label>
+                    <span class="country">{{contact.country}}</span>
+                </div>
+                <div class="form-group">
+                    <label for="age">City:</label>
+                    <span class="city">{{contact.city}}</span>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+        <br>
+        <br>
+    </div>
+    <!-- <div class="alphabets col-xs-3">
+        <ul>
+            <li><a href="">A</a></li>
+            <li><a href="">B</a></li>
+            <li><a href="">C</a></li>
+            <li><a href="">D</a></li>
+            <li><a href="">E</a></li>
+            <li><a href="">F</a></li>
+            <li><a href="">G</a></li>
+            <li><a href="">H</a></li>
+            <li><a href="">I</a></li>
+            <li><a href="">J</a></li>
+            <li><a href="">K</a></li>
+            <li><a href="">L</a></li>
+            <li><a href="">M</a></li>
+            <li><a href="">N</a></li>
+            <li><a href="">O</a></li>
+            <li><a href="">P</a></li>
+            <li><a href="">Q</a></li>
+            <li><a href="">R</a></li>
+            <li><a href="">S</a></li>
+            <li><a href="">T</a></li>
+            <li><a href="">U</a></li>
+            <li><a href="">V</a></li>
+            <li><a href="">W</a></li>
+            <li><a href="">X</a></li>
+            <li><a href="">Y</a></li>
+            <li><a href="">Z</a></li>
+        </ul>
+    </div> -->
+</div>
+</div>
